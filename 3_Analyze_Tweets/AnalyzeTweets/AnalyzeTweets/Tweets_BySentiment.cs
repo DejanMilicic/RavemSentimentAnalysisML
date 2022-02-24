@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Raven.Client.Documents.Indexes;
+﻿using Raven.Client.Documents.Indexes;
 using SentimentAnalyzer;
 
 namespace AnalyzeTweets
@@ -23,7 +18,7 @@ namespace AnalyzeTweets
                 let prediction = Sentiments.Predict(tweet.Text)
                 select new Entry
                 {
-                    Sentiment = prediction.Prediction ? "TOXIC" : "nontoxic",
+                    Sentiment = prediction.Prediction ? "Positive" : "Negative",
                     Score = prediction.Score
                 };
 
